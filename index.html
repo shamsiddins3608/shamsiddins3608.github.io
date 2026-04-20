@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet" /> 
+    <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" type="text/css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -104,6 +104,71 @@
             </div>
         </div>
     </div>
+<div class="container-fluid bg-3">
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Fill out the form below and I'll get back to you!</p>
+
+        <form action="https://formspree.io/f/xjgjoryp" method="POST" id="contact-form">
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name">Your Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="email">Your Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required placeholder="you@example.com">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="4" required placeholder="Write your message here..."></textarea>
+            </div>
+
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <div class="h-captcha" data-sitekey="f2a4c7ca-533e-4716-a8be-30e8ec9addb0"></div>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                </div>
+            </div>
+
+            <p id="form-status" style="margin-top:12px; text-align:center;"></p>
+        </form>
+    </section>
+</div>
+
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+
+<script>
+    var form = document.getElementById("contact-form");
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        var status = document.getElementById("form-status");
+        var data = new FormData(form);
+        fetch(form.action, {
+            method: "POST",
+            body: data,
+            headers: { "Accept": "application/json" }
+        }).then(function(response) {
+            if (response.ok) {
+                status.textContent = "Thanks! Your message was sent.";
+                status.style.color = "#6b9fd4";
+                form.reset();
+                if (window.hcaptcha) hcaptcha.reset();
+            } else {
+                status.textContent = "Oops! Something went wrong. Please try again.";
+                status.style.color = "red";
+            }
+        }).catch(function() {
+            status.textContent = "Error sending message. Check your connection.";
+            status.style.color = "red";
+        });
+    });
+</script>
 
     <!-- Footer -->
     <footer class="container-fluid bg-4 text-center">
@@ -116,5 +181,4 @@
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/normalize-whitespace/prism-normalize-whitespace.min.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>

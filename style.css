@@ -20,7 +20,7 @@ a {
     max-height: 300px;
 }
 
-#fork img{
+#fork img {
     height: 25px;
     margin-bottom: 25px;
     filter: invert(1);
@@ -35,12 +35,12 @@ a {
 }
 
 .bg-1 {
-    background-color: #ffffff; /* White */
+    background-color: #ffffff;
     color: #555555;
 }
 
 .bg-2 {
-    background-color: #2e72a1; /* Blue */
+    background-color: #2e72a1;
     color: #ffffff;
 }
 
@@ -54,12 +54,12 @@ a {
 }
 
 .bg-3 {
-    background-color: #000000; /* Black */
+    background-color: #000000;
     color: #ffffff;
 }
 
 .bg-4 {
-    background-color: #343a40; /* Dark Gray */
+    background-color: #343a40;
     color: #fff;
 }
 
@@ -80,4 +80,52 @@ a {
 
 .navbar-nav li a:hover {
     color: #2e72a1 !important;
+}
+
+#contact {
+    max-width: 550px;
+    margin: 30px auto;
+    padding: 25px;
+    font-family: sans-serif;
+    background: #ffffff;
+    border-radius: 12px;
+    color: #222;
+    border: 1px solid #ddd;
+}
+
+#contact h2 {
+    text-align: center;
+    margin-bottom: 2px;
+    font-size: 22px;
+    color: #222;
+}
+
+#contact > p {
+    color: #555;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+#contact label {
+    color: #333;
+    font-size: 13px;
+}
+
+#contact .form-control {
+    background: #f8f8f8 !important;
+    color: #222 !important;
+    border: 1px solid #ccc !important;
+    font-size: 14px;
+}
+
+#contact .form-control:focus {
+    background: #fff !important;
+    color: #222 !important;
+    border-color: #2e72a1 !important;
+    box-shadow: 0 0 0 0.2rem rgba(46, 114, 161, 0.25) !important;
+}
+
+#contact .btn-primary:hover {
+    background: #245d84 !important;
 }
